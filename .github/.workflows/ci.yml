@@ -6,15 +6,13 @@ on:
       - main
 
 jobs:
-  check-html:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Verify HTML File Exists
+      - name: Check HTML contains Hello
         run: |
-          ls
-          test -f index.html
-          echo "HTML file found successfully!"
+          grep "Hello" index.html
+          echo "Content validation passed!"
