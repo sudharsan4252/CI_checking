@@ -1,0 +1,20 @@
+name: HTML CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify HTML File Exists
+        run: |
+          ls
+          test -f index.html
+          echo "HTML file found successfully!"
